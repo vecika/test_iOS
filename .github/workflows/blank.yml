@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pushes to another repository
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: builds
+          destination-github-username: 'vecika'
+          destination-repository-name: 'test_Automation'
+          user-email: kardum.vedran@gmail.com
+          commit-message: Hello from different repo
+          target-branch: main
+          target-directory: this/testsIOS/newTextFile.txt
+      - name: Test get variable exported 
+        run: echo $DESTINATION_CLONED_DIRECTORY
