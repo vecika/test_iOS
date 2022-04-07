@@ -21,7 +21,7 @@ jobs:
           destination-github-username: 'vecika'
           destination-repository-name: 'test_Automation'
           user-email: kardum.vedran@gmail.com
-          commit-message: Hello from different repo
+          commit-message: Hello from IOS repo
           target-branch: main
           target-directory: this/testsIOS/newTextFile.txt
       - name: Test get variable exported 
